@@ -30,17 +30,20 @@ document.onkeyup = function(event) {
   // if user guesses letter righ then player gets point and game resets
   else if(userKey === programPick){
     
+    //alerts player when letter is guessed right and adds a point to wins
     alert(`You Guessed right! I chose ${programPick}. Play Again?`);
     console.log("Oh you guessed right!");
     wins++;
     guesses = 5;
 
-    
+    //displays wins on page
     document.getElementById("wins-div").innerHTML = "Wins: " + wins; 
 
+    //resets guesses-div when round is done
     document.getElementById("guesses-div").innerHTML = "You Guessed: ";
 
     
+    //resets program pick for next round
     programPick = abc[Math.floor(abc.length * Math.random())]; 
     console.log("program chose: " + programPick);
   }
@@ -48,8 +51,11 @@ document.onkeyup = function(event) {
   else{
     console.log("Wrong!");
     guesses = guesses - 1;
+    
+    //shows letters player guessed 
     document.getElementById("guesses-div").appendChild(letters);
 
+    //shows guesses player has left 
     document.getElementById("guesses-left").innerHTML = "Guesses Left: " + guesses; 
     console.log(guesses);
 
@@ -58,10 +64,14 @@ document.onkeyup = function(event) {
       console.log("You lose!");
       losses++;
       
+      //adds a point to losses
       document.getElementById("losses-div").innerHTML = "Losses: " + losses; 
       
+      //alerts player when game is over and resets guesses
       alert("Game over. Try Again?");
       guesses = 5;
+
+      //resets guesses-left and guesses-div div. 
       document.getElementById("guesses-left").innerHTML = "Guesses Left: " + guesses; 
       document.getElementById("guesses-div").innerHTML = "You Guessed: ";
       programPick = abc[Math.floor(abc.length * Math.random())]; 
