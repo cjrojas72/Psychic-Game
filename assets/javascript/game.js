@@ -29,6 +29,8 @@ document.onkeyup = function(event) {
   }
   // if user guesses letter righ then player gets point and game resets
   else if(userKey === programPick){
+    
+    alert(`You Guessed right! I chose ${programPick}. Play Again?`);
     console.log("Oh you guessed right!");
     wins++;
     guesses = 5;
