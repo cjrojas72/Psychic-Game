@@ -18,6 +18,8 @@ document.onkeyup = function(event) {
   
   //captures key pressed on keyboard
   var userKey = event.key;
+  var letters = document.createTextNode(`${userKey},`);
+
   console.log(userKey);
 
   // program alerts user if key pressed is not a letter
@@ -34,14 +36,14 @@ document.onkeyup = function(event) {
     
     document.getElementById("wins-div").innerHTML = "Wins: " + wins; 
 
+    document.getElementById("guesses-div").innerHTML = "You Guessed: ";
+
     
     programPick = abc[Math.floor(abc.length * Math.random())]; 
     console.log("program chose: " + programPick);
   }
   // if user guesses letter wrong then player losses a guess until 
   else{
-    
-    var letters = document.createTextNode(`${userKey},`);
     console.log("Wrong!");
     guesses = guesses - 1;
     document.getElementById("guesses-div").appendChild(letters);
